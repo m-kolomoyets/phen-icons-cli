@@ -1,0 +1,29 @@
+{
+  "name": "phen-icons-cli",
+  "version": "1.0.0",
+  "description": "cli for autogenerating the icons sprite and Typescript types",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "cli",
+    "phenomenon-studio",
+    "icons",
+    "typescript"
+  ],
+  "author": "Mykola Kolomoyets <mykola.kolomoyets@phenomenon-studio.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@clack/prompts": "^0.7.0",
+    "fs": "^0.0.1-security",
+    "picocolors": "^1.1.0",
+    "svgo": "^3.3.2",
+    "svgson": "^5.3.1"
+  },
+  "peerDependencies": {
+    "svgo": "^3.3.2",
+    "svgson": "^5.3.1"
+  }
+}
