@@ -5,7 +5,12 @@
  * @example toKebabCase("Hello World") // hello-world
  */
 export const toKebabCase = (value) => {
+  if (!value || !value.trim()) {
+    return "";
+  }
+
   return value
+    .trim()
     .replace(/([a-z])([A-Z])/g, "$1-$2")
     .replace(/\s+/g, "-")
     .toLowerCase();

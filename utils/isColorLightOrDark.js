@@ -32,10 +32,8 @@ const convertRGBToHSP = (r, g, b) => {
  * @returns {{r: number, g: number, b: number}} RGB color value
  * @example convertHexToRGB("#ff0000") // { r: 255, g: 0, b:
  */
-const convertHexToRGB = (hex) => {
-  const rgbRaw = +(
-    "0x" + color.slice(1).replace(color.length < 5 && /./g, "$&$&")
-  );
+export const convertHexToRGB = (hex) => {
+  const rgbRaw = +("0x" + hex.slice(1).replace(hex.length < 5 && /./g, "$&$&"));
 
   return {
     r: rgbRaw >> 16,
@@ -51,7 +49,7 @@ const convertHexToRGB = (hex) => {
  * @example isColorLightOrDark("#ff0000") // "light"
  */
 export const isColorLightOrDark = (color) => {
-  if (!color) {
+  if (!color || !color.trim()) {
     return false;
   }
 
@@ -63,7 +61,7 @@ export const isColorLightOrDark = (color) => {
   if (color.match(RGB_MATCH_REGEX)) {
     [, r, g, b] = color.match(RGB_COLORS_EXTRACT_REGEX);
   } else {
-    const rgbFromHex = convertHexToRGB(color);
+    const rgbFromHex = convertHexToRGB(color.toUpperCase());
 
     [r, g, b] = [rgbFromHex.r, rgbFromHex.g, rgbFromHex.b];
   }

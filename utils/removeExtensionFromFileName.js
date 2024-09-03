@@ -4,5 +4,9 @@
  * @returns {string} the file name without extension
  */
 export const removeExtensionFromFileName = (fileName) => {
-  return fileName.split("/").pop().split(".").shift();
+  if (!fileName || !fileName.trim()) {
+    return "";
+  }
+
+  return fileName.trim().split("/").pop().split(".").shift();
 };

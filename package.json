@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --config=jest.config.mjs",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --config=jest.config.mjs --watch"
   },
   "keywords": [
     "cli",
@@ -13,6 +15,10 @@
     "icons",
     "typescript"
   ],
+  "jest": {
+    "preset": "babel-jest",
+    "testEnvironment": "node"
+  },
   "author": "Mykola Kolomoyets <mykola.kolomoyets@phenomenon-studio.com>",
   "license": "ISC",
   "dependencies": {
@@ -25,5 +31,10 @@
   "peerDependencies": {
     "svgo": "^3.3.2",
     "svgson": "^5.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0"
   }
 }
